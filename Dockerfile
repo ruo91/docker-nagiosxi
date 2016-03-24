@@ -34,9 +34,16 @@ RUN yum install -y patch \
  && cd nagiosxi \
  && patch -p0 < post-install.patch
 
+# Build
+RUN cd nagiosxi \
+ && ./fullinstall -n
+
 # Supervisor
-RUN yum install -y python-setuptools python-meld3 \
- && easy_install pip && pip install supervisor && mkdir /etc/supervisord.d
+RUN yum install -y python-setuptools \
+ && easy_install pip \
+ && pip install --upgrade pip \
+ && pip install supervisor meld3 \
+ && mkdir /etc/supervisord.d
 ADD conf/supervisord.conf /etc/supervisord.d/supervisord.conf
 
 # Ports
@@ -44,4 +51,3 @@ EXPOSE 80 443 5666 5667
 
 # Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.d/supervisord.conf"]
-
