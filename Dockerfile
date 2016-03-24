@@ -36,10 +36,10 @@ RUN cd nagiosxi \
  && ./fullinstall -n
 
 # Supervisor
-RUN yum install -y python-setuptools \
+RUN yum install -y python-setuptools python-meld3 \
  && easy_install pip \
  && pip install --upgrade pip \
- && pip install supervisor meld3 \
+ && pip install supervisor \
  && mkdir /etc/supervisord.d
 ADD conf/supervisord.conf /etc/supervisord.d/supervisord.conf
 
