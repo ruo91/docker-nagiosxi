@@ -1,7 +1,7 @@
 # Nagios XI
-Nagios XI¸¦ Container ÇüÅÂ·Î ¹èÆ÷ÇÏ±â À§ÇØ ¸¸µé¾ú½À´Ï´Ù.
+Nagios XIë¥¼ Container í˜•íƒœë¡œ ë°°í¬í•˜ê¸° ìœ„í•´ ë§Œë“¤ì—ˆìŠµë‹ˆë‹¤.
 
-##### - »ç¿ë¹ı
+##### - ì‚¬ìš©ë²•
 ```sh
 [root@ruo91 ~]# docker build --rm -t nagios:xi https://github.com/ruo91/docker-nagiosxi.git
 [root@ruo91 ~]# docker run -d --name="nagiosxi" -h "nagiosxi" \
