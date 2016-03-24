@@ -17,9 +17,6 @@ MAINTAINER Yongbok Kim <ruo91@yongbok.net>
 ENV SRC_DIR /opt
 WORKDIR $SRC_DIR
 
-# EPEL
-RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-
 # Nagios XI
 RUN curl -LO "http://assets.nagios.com/downloads/nagiosxi/xi-latest.tar.gz" \
  && tar xzvf xi-latest.tar.gz
