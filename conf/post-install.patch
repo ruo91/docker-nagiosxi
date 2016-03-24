@@ -1,0 +1,38 @@
+# Maintainer: Yongbok Kim (ybkim@rockplace.co.kr)
+--- subcomponents/ndoutils/post-install.origin	2016-03-24 05:25:24.909946714 +0900
++++ subcomponents/ndoutils/post-install	2016-03-24 05:26:15.162945863 +0900
+@@ -16,21 +16,21 @@
+ cp -f mods/cfg/ndomod.cfg /usr/local/nagios/etc
+ 
+ # Change some settings in /etc/sysctl.conf, add them if they're not there 
+-if [ "`grep kernel.msg /etc/sysctl.conf`" == "" ] ; then
+-	echo "kernel.msgmnb = 131072000" >> /etc/sysctl.conf
+-	echo "kernel.msgmax = 131072000" >> /etc/sysctl.conf
+-	echo "kernel.shmmax = 4294967295" >> /etc/sysctl.conf
+-	echo "kernel.shmall = 268435456" >> /etc/sysctl.conf	
+-else
+-	sed -i 	-e '/^kernel\.msgmnb/ s/.*/kernel.msgmnb = 131072000/' \
+-			-e '/^kernel\.msgmax/ s/.*/kernel.msgmax = 131072000/' \
+-			-e '/^kernel\.shmmax/ s/.*/kernel.shmmax = 4294967295/' \
+-			-e '/^kernel\.shmall/ s/.*/kernel.shmall = 268435456/' \
+-			/etc/sysctl.conf
+-fi
++#if [ "`grep kernel.msg /etc/sysctl.conf`" == "" ] ; then
++#	echo "kernel.msgmnb = 131072000" >> /etc/sysctl.conf
++#	echo "kernel.msgmax = 131072000" >> /etc/sysctl.conf
++#	echo "kernel.shmmax = 4294967295" >> /etc/sysctl.conf
++#	echo "kernel.shmall = 268435456" >> /etc/sysctl.conf	
++#else
++#	sed -i 	-e '/^kernel\.msgmnb/ s/.*/kernel.msgmnb = 131072000/' \
++#			-e '/^kernel\.msgmax/ s/.*/kernel.msgmax = 131072000/' \
++#			-e '/^kernel\.shmmax/ s/.*/kernel.shmmax = 4294967295/' \
++#			-e '/^kernel\.shmall/ s/.*/kernel.shmall = 268435456/' \
++#			/etc/sysctl.conf
++#fi
+ 
+ # Apply settings to sysctl.conf
+-sysctl -e -p /etc/sysctl.conf
++#sysctl -e -p /etc/sysctl.conf
+ 	
+ # See if database already exists
+ echo "NOTE: If prompted, enter the MySQL root password"
